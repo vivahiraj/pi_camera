@@ -1,0 +1,22 @@
+Raspberry PiにUSBカメラをつないでwebから確認するものです。
+
+別途motionの設定が必要です。
+
+最低限motionの設定として以下をいじる必要があります。
+control_localhost off
+webcam_localhost off
+output_normal off
+#出力先をpublic配下にする必要があります。
+target_dir /home/pi/pi_camera/public/img/motion
+
+
+git cloneしたら最初に
+bundle install
+してください。
+
+試す際には、
+sudo motion
+でmotionを起動しておいて
+bundle exec rackup
+を実行してください。
+

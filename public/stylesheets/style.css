@@ -1,0 +1,6 @@
+.alert {
+    display: none;
+    position: absolute;
+    left: 0px;
+    width: 480px;
+}

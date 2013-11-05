@@ -1,0 +1,20 @@
+!!! 5
+%html
+  %head
+    %meta{:name=>'viewport',:content=>"width=device-width, initial-scale=1.0"}
+    %title= "PI CAMERA"
+    %link{:href=>"//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css", :rel=>"stylesheet", :media=>"screen"}
+    %link{:href=>"//netdna.bootstrapcdn.com/bootswatch/3.0.0/slate/bootstrap.min.css", :rel=>"stylesheet"}
+    %link{:rel=>"stylesheet", :href=>"stylesheets/lightbox.css"}
+    %link{:rel=>"stylesheet", :href=>"stylesheets/style.css"}
+    %script{:src=>"////ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"}
+    %script{:src=>"js/lightbox-2.6.min.js"}
+    %script{:src=>"//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"}
+  %body
+    %div{:class => "container"}
+      %div{:class => "page-header"}
+        %h1
+          PI CAMERA
+      %div{:class => "row"}
+        = yield
+

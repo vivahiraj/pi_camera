@@ -1,0 +1,37 @@
+%div{:class => "row"}
+  %div{:class=>"movie col-md-3"}
+  %div{:class=>"movie col-md-6"}
+    %div{:class=>"alert alert-info"}
+      snapshot saved.
+    %img{:src=>"http://raspberrypi.local:8081", :class=>"movie"}
+    %button{:type=>"button",:class=>"btn btn-lg btn-primary",:id=>"shot_btn"}
+      %i{:class=>"glyphicon glyphicon-camera"}
+      shot
+  %div{:class=>"movie col-md-3"}
+%div{:class => "row"}
+  %div{:class=>"snap_list col-md-12"}
+    %h3
+      snap shots
+%div{:class => "row"}
+  %div{:id=>"snap_list",:class=>"col-md-12"}
+    - @files.each do |f|
+      %div{:class=>"col-md-2"}
+        %a{:href=>"/img/motion/#{f}", "data-lightbox"=>"roadtrip"}
+          %img{:src=>"/img/motion/#{f}",:class=>"thumbnail"}
+
+:javascript
+  $(document).ready(function() {
+    $('#shot_btn').click(function(e) {
+      $.getJSON('/shot',
+                {},
+                function(data, textStatus) {
+                  var img;
+                  img = '<div class="col-md-2">';
+                  img = img + '<a href="/img/motion/' + data[0] + '" data-lightbox="roadtrip">';
+                  img = img + '<img src="/img/motion/' + data[0] + '" class="thumbnail" />';
+                  img = img + "</a></div>";
+                  $('.alert').fadeIn(1000).delay(2000).fadeOut(2000);
+                  $("#snap_list").prepend(img);
+                });
+    });
+  });
